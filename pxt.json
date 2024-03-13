@@ -8,7 +8,11 @@
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.1.0",
         "Declutter": "github:S0m3randomguy/declutter#6b0626bf1bd2c7d9a70b846031b5226e48ee932a",
         "BetterSettings": "github:S0m3randomguy/bettersettings#2023.5.1",
-        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#96cf1014271246d15b85368b45f298bd8c6609c4"
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#96cf1014271246d15b85368b45f298bd8c6609c4",
+        "arcade-platformer": "github:microsoft/arcade-platformer#v0.0.9",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1",
+        "grafxkid-tiles": "github:riknoll/grafxkid-tiles#v2.0.1"
     },
     "files": [
         "main.blocks",
