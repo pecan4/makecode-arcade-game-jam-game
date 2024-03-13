@@ -12,7 +12,8 @@
         "arcade-platformer": "github:microsoft/arcade-platformer#v0.0.9",
         "Timers": "github:microsoft/arcade-timers#v1.1.0",
         "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1",
-        "grafxkid-tiles": "github:riknoll/grafxkid-tiles#v2.0.1"
+        "grafxkid-tiles": "github:riknoll/grafxkid-tiles#v2.0.1",
+        "FastRandomBlocks": "github:UnsignedArduino/Fast-Random-Blocks#8c985a77e5c4278e43a7bc375db095c67afb58ed"
     },
     "files": [
         "main.blocks",
@@ -28,7 +29,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.47",
+        "target": "1.12.49",
         "targetId": "arcade"
     },
     "supportedTargets": [
