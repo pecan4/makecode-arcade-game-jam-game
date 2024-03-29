@@ -16,10 +16,10 @@
         "FastRandomBlocks": "github:UnsignedArduino/Fast-Random-Blocks#8c985a77e5c4278e43a7bc375db095c67afb58ed",
         "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
         "pxt-arcade-image-transform": "github:robo-technical-group/pxt-arcade-image-transform#v1.0.9",
-        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#master",
         "Extra Effects": "github:alexszeto/extra-effects#v3.1.0",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
-        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.0.14"
+        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.0.14",
+        "Inventory": "github:UnsignedArduino/Inventory#v1.1.1"
     },
     "files": [
         "main.blocks",

@@ -2,9 +2,104 @@ namespace SpriteKind {
     export const tet_box_image = SpriteKind.create()
     export const dialogue = SpriteKind.create()
     export const title = SpriteKind.create()
+    export const plant = SpriteKind.create()
+    export const harvestable = SpriteKind.create()
+    export const grass = SpriteKind.create()
 }
+sprites.onCreated(SpriteKind.plant, function (sprite) {
+    timer.background(function () {
+        extraEffects.createSpreadEffectOnAnchor(sprite, extraEffects.createSingleColorSpreadEffectData(6, ExtraEffectPresetShape.Spark), 100)
+        tiles.placeOnTile(sprite, mySprite.tilemapLocation())
+        pause(3500)
+        sprite.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . c . . . . . . . . 
+            . . . . . c . c . . . . . . . . 
+            . . c . . c . c . . . . c . . . 
+            . . c . . c . c . . . c . . . . 
+            . . c . c . . . c . . c . . . . 
+            . . c . c . . . c . . c . . . . 
+            . . c . c . . . c . . c . . . . 
+            . c . . c . . . c . . . c . . . 
+            . c . . c . . . c . . . c . . . 
+            . c . . c . . . c . . . c . . . 
+            c c c c c c c c c c c c c c c c 
+            `)
+        pause(4500)
+        sprite.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . c . . . . . . . . . . . . . 
+            . c . . . . . . c . . c . . . . 
+            . c . . c . . c . . . c . . . . 
+            . c . . . c . c . . . . c . . . 
+            . . c . . c . c . . . . c . . . 
+            . . c . . c . c . . . c . . . . 
+            . . c . c . . . c . . c . . . . 
+            . . c . c . . . c . . c . . . . 
+            . . c . c . . . c . . c . . . . 
+            . c . . c . . . c . . . c . . . 
+            . c . . c . . . c . . . c . . . 
+            . c . . c . . . c . . . c . . . 
+            c c c c c c c c c c c c c c c c 
+            `)
+        pause(6000)
+        sprite.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . e . . . . . . . . . . . . . 
+            . . e . e . . . . . . e . . . . 
+            . . e . e . . . e . . e . . . . 
+            . 6 . . e . . . e . . e . . . . 
+            . 6 . . e . . 6 . . . e . . . . 
+            . 6 . . . 6 . 6 . . . . 6 . . . 
+            . . 6 . . 6 . 6 . . . . 6 . . . 
+            . . 6 . . 6 . 6 . . . 6 . . . . 
+            . . 6 . 6 . . . 6 . . 6 . . . . 
+            . . 6 . 6 . . . 6 . . 6 . . . . 
+            . . 6 . 6 . . . 6 . . 6 . . . . 
+            . 6 . . 6 . . . 6 . . . 6 . . . 
+            . 6 . . 6 . . . 6 . . . 6 . . . 
+            . 6 . . 6 . . . 6 . . . 6 . . . 
+            6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 
+            `)
+        sprite.setKind(SpriteKind.harvestable)
+        extraEffects.createSpreadEffectOnAnchor(sprite, extraEffects.createSingleColorSpreadEffectData(12, ExtraEffectPresetShape.Twinkle), 100, 24, 30)
+    })
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setVelocity(0, -225)
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (seeds >= 1) {
+        if (mySprite.tileKindAt(TileDirection.Bottom, assets.tile`myTile2`) || (mySprite.tileKindAt(TileDirection.Bottom, assets.tile`myTile0`) || (mySprite.tileKindAt(TileDirection.Bottom, assets.tile`myTile3`) || (mySprite.tileKindAt(TileDirection.Bottom, assets.tile`myTile18`) || (mySprite.tileKindAt(TileDirection.Bottom, assets.tile`myTile16`) || mySprite.tileKindAt(TileDirection.Bottom, assets.tile`myTile20`)))))) {
+            timer.background(function () {
+                seeds += -1
+                mySprite2 = sprites.create(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . c . . c . . . c . . . c . . . 
+                    . c . . c . . . c . . . c . . . 
+                    . c . . c . . . c . . . c . . . 
+                    c c c c c c c c c c c c c c c c 
+                    `, SpriteKind.plant)
+            })
+        }
+    }
 })
 function textbox (text: string, person: Image, person2: Image, name: string) {
     timer.background(function () {
@@ -32,6 +127,19 @@ function textbox (text: string, person: Image, person2: Image, name: string) {
     declutter.offload("dialogue1")
     declutter.offload("dialogue2")
 }
+statusbars.onZero(StatusBarKind.Health, function (status) {
+    game.setGameOverPlayable(true, music.createSoundEffect(WaveShape.Sine, 1, 0, 0, 0, 1, SoundExpressionEffect.None, InterpolationCurve.Linear), false)
+    game.setGameOverMessage(true, "GAME OVER!")
+    game.gameOver(true)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.harvestable, function (sprite, otherSprite) {
+    statusbar.value += 5
+    sprites.destroy(otherSprite)
+})
+let grass_sprite: Sprite = null
+let mySprite2: Sprite = null
+let seeds = 0
+let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
 scene.setBackgroundColor(11)
 scene.setBackgroundImage(assets.image`title`)
@@ -184,6 +292,61 @@ assets.animation`alex_walking_left_no_beanie`,
 characterAnimations.rule(Predicate.MovingLeft)
 )
 tiles.setCurrentTilemap(tilemap`level12`)
-controller.moveSprite(mySprite, 100, 0)
+controller.moveSprite(mySprite, 75, 0)
 mySprite.ay = 750
 scene.cameraFollowSprite(mySprite)
+statusbar = statusbars.create(20, 4, StatusBarKind.Health)
+statusbar.attachToSprite(mySprite)
+statusbar.setColor(13, 3)
+seeds += 10
+game.setDialogCursor(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . . f c c c c c c f . . . . 
+    . . . f c c c f f c c c f . . . 
+    . . f c c c f c c f c c c f . . 
+    . . f c c f c c c c f c c f . . 
+    . . f c c f c c c c f c c f . . 
+    . . f c c f c c c c f c c f . . 
+    . . f c c f f f f f f c c f . . 
+    . . f c c f c c c c f c c f . . 
+    . . f c c f c c c c f c c f . . 
+    . . . f c c c c c c c c f . . . 
+    . . . . f c c c c c c f . . . . 
+    . . . . . f f f f f f . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `)
+let myTextSprite = fancyText.create("seeds:", 0, 15, fancyText.defaultArcade)
+myTextSprite.setFlag(SpriteFlag.RelativeToCamera, true)
+myTextSprite.setPosition(118, 5)
+forever(function () {
+    pause(1000)
+    statusbar.value += -1
+})
+forever(function () {
+    if (100 <= seeds) {
+        seeds = 99
+    }
+    fancyText.setText(myTextSprite, "seeds: " + seeds)
+})
+forever(function () {
+    grass_sprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.grass)
+})
